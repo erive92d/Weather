@@ -1,0 +1,12 @@
+.header {
+    text-align: center;
+    background-color: rgb(55, 133, 235);
+    height: 100px;
+    color: white;
+    border-bottom: 3px solid black;
+}
+
+.navbar{
+    
+    width: 40%;
+}
