@@ -56,17 +56,33 @@ searchBtn.addEventListener("click", function (event) {
           var temp = data.list[0].main.temp;
           var humidity = data.list[0].main.humidity
           var wind = data.list[0].wind.speed
-          weatherInfo(formValue.value)
+          weatherInfo(formValue.value,sky,temp,humidity,wind)
         });
     });
 });
 
 var currentTime = dayjs().format('MMMM DD dddd')
 console.log(currentTime)
+var listGroupEl = document.querySelector('.list-group')
 
-var weatherInfo = function(city) {    
-    var weatherContainer = document.createElement('div')
+var weatherInfo = function(city,s,t,h,w) {    
+    
 
+    var infoArray = []
+    infoArray.push(s,t,h,w)
+    console.log(infoArray)
+
+    for(var i = 0; i < infoArray.length; i++) {
+      var listEl = document.createElement('li')
+      listEl.textContent = infoArray[i]
+      listGroupEl.append(listEl)
+    }
+    console.log(listEl)
+    
+
+    
+    
+    
     cityName.textContent = city
 
   
