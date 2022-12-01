@@ -6,6 +6,7 @@ var searchBtn = document.querySelector(".btn");
 var formValue = document.querySelector(".form-control");
 var containerEl = document.querySelector('.container')
 
+
 var cityName = document.querySelector('.card-title')
 
 var urlLink =
@@ -118,8 +119,8 @@ searchBtn.addEventListener("click", function (event) {
 
 
 var currentTime = dayjs().format('MMMM DD dddd')
-// var after = currentTime.add(1, 'day')
-console.log(dayjs().format('MMMM DD dddd').add(1, 'day'))
+console.log(currentTime)
+$('#current-date').text(currentTime)
 
 
 

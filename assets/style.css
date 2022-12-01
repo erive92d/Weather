@@ -1,23 +1,32 @@
 body {
+    font-family: monospace;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #02395C;
 }
 
 .header {
     text-align: center;
-    background-color: rgb(55, 133, 235);
-    height: 100px;
+    background-color: rgb(38, 52, 71);
+    height: 200px;
     color: white;
     border-bottom: 3px solid black;
 }
 
 
 
-.navbar{
+nav{
+    width: 70%;
+    margin: 2% auto;
     
-    width: 40%;
 }
+
+
+.container-fluid {
+    text-align: center;
+}
+
 
 .container {
     border: 3px solid black;
@@ -40,13 +49,13 @@ body {
     
 }
 .card {
-    border-radius: 3px;
+    margin: 3%;
     width: 15rem;
-    height: 20rem;
+    height: 15rem;
     
 }
 .day {
-    background-color: blue;
+    background-color: rgb(199, 147, 51);
     color: white;
 }
 
@@ -56,4 +65,7 @@ i {
     font-size: 400%;
     text-align: center;
     margin: auto;
+}
+#current-date {
+    margin: 5%;
 }
