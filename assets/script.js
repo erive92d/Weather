@@ -10,7 +10,7 @@ var containerEl = document.querySelector('.container')
 var cityName = document.querySelector('.card-title')
 
 var urlLink =
-  "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+  "http://api.openweathermap.org/data/2.5/forecast?lat=" +
   latValue +
   "&lon=" +
   lonValue +
