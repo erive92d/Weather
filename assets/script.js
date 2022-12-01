@@ -44,49 +44,84 @@ searchBtn.addEventListener("click", function (event) {
         lat +
         "&lon=" +
         lon +
-        "&appid=0c4e7dd6f717e6bcc15f38209147724e";
+        "&units=imperial&cnt=5&appid=0c4e7dd6f717e6bcc15f38209147724e";
 
       fetch(urlLink)
         .then(function (response) {
           return response.json();
         })
         .then(function (data) {
-            console.log(data.list[0])
-          var sky = data.list[0].weather[0].main
-          var temp = data.list[0].main.temp;
-          var humidity = data.list[0].main.humidity
-          var wind = data.list[0].wind.speed
-          weatherInfo(formValue.value,sky,temp,humidity,wind)
-        });
+         var dataInfo = data.list
+           
+         console.log(dataInfo)
+          
+          for(var i = 0; i <= dataInfo.length; i++) {
+            // console.log(dataInfo[i].main.humidity)
+          var mainContainer = document.querySelector('.main-container')
+          var cardEl = document.createElement('div');
+          cardEl.classList.add('card')
+
+          //Icon
+          var icon = document.createElement('i');
+          
+         
+
+          //DAY
+          var dayValue = document.createElement('div')
+          dayValue.textContent = dayjs().add(i, 'day').format('MMMM DD dddd');
+          dayValue.classList.add('infos','day')
+            
+          //Temperature
+          var tempValue = dataInfo[i].main.temp
+          var tempDiv = document.createElement('div');
+          tempDiv.textContent = 'TEMP: ' + tempValue
+          tempDiv.classList.add('infos')
+
+          //Wind
+          var windValue = dataInfo[i].wind.speed
+          var windDiv = document.createElement('div')
+          windDiv.textContent = 'WIND: ' + windValue +'MPH'
+          windDiv.classList.add('infos')
+
+          //Humidity
+          var humidValue = dataInfo[i].main.humidity
+          var humidDiv = document.createElement('div')
+          humidDiv.textContent = 'HUMIDITY: ' + humidValue + '%'
+          humidDiv.classList.add('infos')
+          
+          var condition = dataInfo[i].weather[0].main
+          console.log(condition)
+          if(condition === 'Rain') {
+            icon.classList.add('fa-solid','fa-cloud-showers-heavy')
+          } else if(condition === 'Clouds') {
+           icon.classList.add('fa-sharp','fa-solid','fa-cloud')
+          } else {
+            icon.classList.add('fa-solid','fa-sun')
+          }
+
+
+          
+          
+          cardEl.append(dayValue,tempDiv,windDiv,humidDiv,icon)
+          mainContainer.append(cardEl)
+
+
+          // console.log(dataInfo[i].weather[0].main)
+
+           
+        }
+      });
     });
 });
 
+
+
+
 var currentTime = dayjs().format('MMMM DD dddd')
-console.log(currentTime)
-var listGroupEl = document.querySelector('.list-group')
+// var after = currentTime.add(1, 'day')
+console.log(dayjs().format('MMMM DD dddd').add(1, 'day'))
 
-var weatherInfo = function(city,s,t,h,w) {    
-    
 
-    var infoArray = []
-    infoArray.push(s,t,h,w)
-    console.log(infoArray)
 
-    for(var i = 0; i < infoArray.length; i++) {
-      var listEl = document.createElement('li')
-      listEl.textContent = infoArray[i]
-      listGroupEl.append(listEl)
-    }
-    console.log(listEl)
-    
 
-    
-    
-    
-    cityName.textContent = city
-
-  
-    
-
-}
 

@@ -24,3 +24,36 @@ body {
  
     width: 100%;
 }
+
+.infos {
+    text-align: center;
+    font-weight: 700;
+
+    
+}
+.main-container {
+    display: flex;
+  
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 10%;
+    
+}
+.card {
+    border-radius: 3px;
+    width: 15rem;
+    height: 20rem;
+    
+}
+.day {
+    background-color: blue;
+    color: white;
+}
+
+
+
+i {
+    font-size: 400%;
+    text-align: center;
+    margin: auto;
+}
