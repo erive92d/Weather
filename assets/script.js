@@ -53,8 +53,9 @@ searchBtn.addEventListener("click", function (event) {
         })
         .then(function (data) {
          var dataInfo = data.list
-           
-         console.log(dataInfo)
+
+        
+        
           
           for(var i = 0; i <= dataInfo.length; i++) {
             // console.log(dataInfo[i].main.humidity)
@@ -73,6 +74,7 @@ searchBtn.addEventListener("click", function (event) {
           dayValue.classList.add('infos','day')
             
           //Temperature
+          
           var tempValue = dataInfo[i].main.temp
           var tempDiv = document.createElement('div');
           tempDiv.textContent = 'TEMP: ' + tempValue
@@ -104,14 +106,33 @@ searchBtn.addEventListener("click", function (event) {
           
           
           cardEl.append(dayValue,tempDiv,windDiv,humidDiv,icon)
-          mainContainer.append(cardEl)
 
+
+         
+         
+         
+          
+        
+            mainContainer.append(cardEl)
+            
+            
+            
 
           // console.log(dataInfo[i].weather[0].main)
 
            
         }
-      });
+       
+       
+       
+        
+      }
+          
+         
+          
+      );
+      formValue.value = ''
+      
     });
 });
 
